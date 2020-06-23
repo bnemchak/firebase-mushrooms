@@ -5,6 +5,7 @@ import './singleMycologist.scss';
 
 const buildMycologist = (e) => {
   const mycologistId = e.target.closest('.card').id;
+  console.warn(mycologistId);
   mycologistData.getMycologistById(mycologistId)
     .then((response) => {
       const mycologist = response.data;
