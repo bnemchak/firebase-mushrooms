@@ -20,8 +20,6 @@ const buildForest = () => {
       utils.printToDom('#forest', domString);
     })
     .catch((err) => console.error('get mushrooms broke :/', err));
-  // const domString = '<h1>It does actually work</h1>';
-  // utils.printToDom('#forest', domString);
 };
 
 export default { buildForest };
