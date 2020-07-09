@@ -35,4 +35,20 @@ const totallyRemoveShroomie = (mushroomId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getSingleMycoWithShrooms, totallyRemoveShroomie };
+const getMushroomWithOwner = () => new Promise((resolve, reject) => {
+  mushroomData.getMushrooms()
+    .then((allMushrooms) => {
+      mycologistData.getMycologists().then((allMycos) => {
+        mycologistMushroomData.getAllMycoShrooms().then((allMycoShrooms) => {
+          resolve({
+            allMushrooms,
+            allMycos,
+            allMycoShrooms,
+          });
+        });
+      });
+    })
+    .catch((err) => reject(err));
+});
+
+export default { getSingleMycoWithShrooms, totallyRemoveShroomie, getMushroomWithOwner };
